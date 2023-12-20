@@ -1,0 +1,25 @@
+{
+  "name": "assignment-task",
+  "version": "1.0.0",
+  "description": "Program:\r 1. Login page –1\r • Should have 2 inputs (user email and password), and 1 button (login button).\r • Login button should send request to backend.\r • Should have a JSON file from which user will read the file and validate if user credentials\r are valid or not.\r  Sample JSON file data\r [{\"email_id\":\"sample@gmail.com\",\"password\":\"1234\"},{“email_id\":\"sample1@gmail.co\r m\",\"password\":\"9876\"}]\r • After which user will redirect to page –2.\r • User can access page –2 only if user logged in successfully else user should redirect to\r page-1.\r 2. Home Page –2\r • Should have 2 input tags, 4 buttons.\r • Button 1 should be used to submit data typed in first input tag.\r • Data should be stored in COOKIE and should retrieve even if user logs in again to the\r account.\r • Button 2 is to search data (from cookie) typed in second input tag and list the searched\r data in UI if string matches with stored COOKIE.\r • Button 3 is to clear all COOKIE.\r • Button 4 is to logout from the account and redirect to login page -1.\r • COOKIE data should not get clear unless and until user clicks on button 3.\r NOTE: Do not give focus on UI.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"npx nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Akshay-Makwana66/Assignment-task.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Akshay-Makwana66/Assignment-task/issues"
+  },
+  "homepage": "https://github.com/Akshay-Makwana66/Assignment-task#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.2"
+  }
+}

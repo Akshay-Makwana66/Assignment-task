@@ -1,0 +1,51 @@
+ <!DOCTYPE html>
+<html>
+<head>
+  <title>Home</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <form action="/submit" method="POST">
+    <label for="">Submit text message :</label><br><br>
+    <input type="text" name="data" placeholder="Write Data Here"><br><br>
+    <button type="submit">Submit</button><br><br>
+  </form>
+  
+  <form id="searchForm">
+    <label for="">Search text message :</label><br><br>
+    <input type="text" id="searchInput" name="search" placeholder="Search Data Here"><br><br>
+    <button type="submit" id="searchButton">Search</button><br><br>
+  </form>
+
+  <label for="">Searched text messages here :</label><br><br>
+  <textarea id="searchedData" rows="5" cols="50" readonly></textarea><br><br>
+  
+  <a href="/clear"><button>Clear All</button></a><br><br>
+  <a href="/logout"><button>Logout</button></a>
+
+  <script>
+    $(document).ready(function() {
+      $('#searchForm').submit(function(e) {
+        e.preventDefault();
+        const searchValue = $('#searchInput').val();
+        console.log("Search value:", searchValue);
+        
+        const storedData = document.cookie.split(';').find(cookie => cookie.trim().startsWith('storedData='));
+        
+        if (storedData) {
+          const data = storedData.split('=')[1];
+          console.log("Extracted data:", data);
+          if (data.includes(searchValue)) {
+            $('#searchedData').val(data);
+          } else {
+            $('#searchedData').val('No matches found');
+          }
+        } else {
+          $('#searchedData').val('No data stored');
+        }
+      });
+
+    });
+  </script>
+</body>
+</html>
