@@ -10,6 +10,20 @@
     <label for="">Password :</label><br><br>
     <input type="password" name="password" placeholder="Write Password Here" required><br><br>
     <button type="submit">Login</button>
+    <p id="error-message" style="color: red; display: none;"></p>
   </form>
+
+  <script>
+    // Get the error message from the URL query parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const errorMessage = urlParams.get('error');
+
+    // Display the error message if it exists
+    if (errorMessage) {
+      const errorMessageElement = document.getElementById('error-message');
+      errorMessageElement.textContent = errorMessage;
+      errorMessageElement.style.display = 'block';
+    }
+  </script>
 </body>
 </html>

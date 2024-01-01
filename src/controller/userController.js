@@ -25,7 +25,9 @@ const getPage = async function (req, res) {
           res.cookie('user', user.email_id);
           res.redirect('/home');
         } else {
-          res.redirect('/');  
+          res.redirect('/?error=Email%20or%20password%20is%20incorrect');
+          // res.send("email or password is incorrect")
+          // res.redirect('/');  
         }
     } catch (error) {
       res.status(500).send({ status: false, msg: error.message });
